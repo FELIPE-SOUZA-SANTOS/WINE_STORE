@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+
+<title>Editar Produto</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="checkout">
+
+<h1>Editar Produto</h1>
+
+<form
+action="/admin/atualizar/{{ produto.id }}"
+method="POST">
+
+<input
+type="text"
+name="nome"
+value="{{ produto.nome }}"
+required>
+
+<input
+type="text"
+name="descricao"
+value="{{ produto.descricao }}"
+required>
+
+<input
+type="number"
+step="0.01"
+name="preco"
+value="{{ produto.preco }}"
+required>
+
+<input
+type="number"
+name="estoque"
+value="{{ produto.estoque }}"
+required>
+
+<button type="submit">
+Salvar Alterações
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

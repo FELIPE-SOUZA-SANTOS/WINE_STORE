@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Harmonização Inteligente</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+<header>
+    <h2>🍷 Wine Store</h2>
+
+    <nav>
+        <a href="/">Início</a>
+        <a href="/carrinho">🛒 Carrinho</a>
+        <a href="/harmonizacao">🍇 Harmonização</a>
+        <a href="/login">Admin</a>
+    </nav>
+</header>
+
+<div class="checkout">
+
+    <h1>🍇 Harmonização Inteligente</h1>
+
+    <h2>📌 Seu Carrinho</h2>
+
+    {% if produtos %}
+
+        <ul>
+        {% for p in produtos %}
+            <li>{{ p.nome }} - R$ {{ p.preco }}</li>
+        {% endfor %}
+        </ul>
+
+    {% else %}
+
+        <p>Seu carrinho está vazio.</p>
+
+    {% endif %}
+
+    <hr>
+
+    <h2>🍽️ Sugestão de Harmonização</h2>
+
+    <p style="font-size:18px; color:#6b0015;">
+        {{ sugestao }}
+    </p>
+
+    <hr>
+
+    <h2>💡 Dica do Sommelier</h2>
+
+    <p>
+        Quanto mais encorpado o vinho, mais intenso deve ser o prato.
+        Vinhos leves combinam com comidas leves, e vinhos estruturados pedem pratos mais fortes.
+    </p>
+
+</div>
+
+</body>
+</html>

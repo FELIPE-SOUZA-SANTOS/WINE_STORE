@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+
+<title>Painel Administrativo</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+<h2>🍷 Wine Store</h2>
+
+<nav>
+
+<a href="/">Loja</a>
+
+<a href="/admin/produtos">
+Gerenciar Produtos
+</a>
+
+<a href="/logout">
+Sair
+</a>
+
+</nav>
+
+</header>
+
+<div class="login-container">
+
+<h1>Painel Administrativo</h1>
+
+<p>
+Bem-vindo,
+<b>{{ session['usuario'] }}</b>
+</p>
+
+<a class="btn"
+href="/admin/produtos">
+Gerenciar Produtos
+</a>
+
+</div>
+
+</body>
+</html>

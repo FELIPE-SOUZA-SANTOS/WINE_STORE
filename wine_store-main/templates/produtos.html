@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wine Store</title>
+</head>
+<body>
+
+<h1>🍷 Wine Store</h1>
+
+<a href="/carrinho">Carrinho</a>
+
+<hr>
+
+{% for produto in produtos %}
+
+<h3>{{ produto.nome }}</h3>
+
+<p>{{ produto.descricao }}</p>
+
+<p>R$ {{ produto.preco }}</p>
+
+<a href="/adicionar/{{ produto.id }}">
+    Adicionar ao Carrinho
+</a>
+
+<hr>
+
+{% endfor %}
+
+</body>
+</html>

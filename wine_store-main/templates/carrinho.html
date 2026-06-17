@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <h2>🍷 Wine Store</h2>
+
+    <nav>
+        <a href="/">Inicio</a>
+        <a href="/carrinho">Carrinho</a>
+        <a href="/login">Admin</a>
+    </nav>
+</header>
+
+<div class="carrinho-container">
+
+    <h1>🛒 Seu Carrinho</h1>
+
+    {% if produtos|length == 0 %}
+
+        <p>Seu carrinho está vazio.</p>
+
+    {% endif %}
+
+    {% for produto in produtos %}
+
+    <div class="item-carrinho">
+
+        <span>{{ produto.nome }}</span>
+
+        <span>R$ {{ produto.preco }}</span>
+
+        <a class="btn"
+           href="/remover/{{ produto.id }}"
+           style="background:#8d0020;">
+            Remover
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+    <div class="total">
+        Total: R$ {{ total }}
+    </div>
+
+    <a class="btn"
+       href="/limpar-carrinho"
+       style="margin-top:20px; display:inline-block;">
+        🧹 Limpar Carrinho
+    </a>
+
+    <hr style="margin:30px 0;">
+
+    <h2>Insira seus dados para Finalizar Compra</h2>
+
+    <form action="/checkout" method="POST" class="checkout-form">
+
+        <input
+            type="text"
+            name="nome"
+            placeholder="Nome Completo"
+            required>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            required>
+
+        <input
+            type="text"
+            name="telefone"
+            placeholder="Telefone"
+            required>
+
+            <input
+            type="text"
+            name="endereco"
+            placeholder="Endereço"
+            required>
+
+        <button type="submit">
+            Finalizar Compra
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
